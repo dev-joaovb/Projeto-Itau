@@ -27,6 +27,12 @@ public class TransactionController {
         transactionService.addTransaction(new Transaction(request.getValor(), request.getDataHora()));
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
-    
+
+    @DeleteMapping
+    // Endpoint para limpar todas as transações
+    public ResponseEntity<Void> clearTransactions() {
+        transactionService.clearTransactions();
+        return ResponseEntity.noContent().build();
+    }
 
 }
